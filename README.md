@@ -10,20 +10,27 @@ Soon will be described
 
 Resources
 -
+
+- ETF prices,
+
 Hermes contains the following resources:
-  - [**ETF Day1 and H1 data**](germes-core/src/main/resources/quotes) contains several ETF history csv files
-  - [**Forex Day1 and H1 currency data**](germes-core/src/main/resources/quotes) contains several Forex currency history csv files
-  - [**Futures D1 & H1 stock data**](germes-core/src/main/resources/quotes) contains several Futures history csv files
-  - [**Metals D1 & H1 spot data**](germes-core/src/main/resources/quotes) contains gold & silver spot history csv files
-  - [**RU stocks D1 & H1 data**](germes-core/src/main/resources/quotes) contains several Russian stock history csv files
-  - [**US stocks D1 & H1 data**](germes-core/src/main/resources/quotes) contains several USA stock history csv files
-  - [**DE stocks D1 & H1 data**](germes-core/src/main/resources/quotes) contains several German stock history csv files
-  - [**FR stocks D1 & H1 data**](germes-core/src/main/resources/quotes) contains several French stock history csv files
-  - [**Other quotes data**](germes-core/src/main/resources/quotes/Others) contains other stock history files 
+  - [**ETF Day1 and H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several ETF history csv files
+  - [**Forex Day1 and H1 currency data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several Forex currency history csv files
+  - [**Indexes D1 & H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several Index history csv files
+  - [**Futures D1 & H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several Futures history csv files
+  - [**Energy futures D1 & H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several energy futures (BRN, WT, NG, etc)  history csv files
+  - [**Agriculture futures D1 & H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several Agriculture Futures (COFFEE, COCOA, etc) history csv files
+  - [**Metals D1 & H1 spot data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains gold & silver spot history csv files
+  - [**E-Coins D1 & H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several digital couns (Bitcoin, Litecoin) history csv files
+  - [**ETF prices, D1 & H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several ETF price history csv files
+  - [**RU stocks D1 & H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several Russian stock history csv files
+  - [**US stocks D1 & H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several USA stock history csv files
+  - [**DE stocks D1 & H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several German stock history csv files
+  - [**FR stocks D1 & H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several French stock history csv files
 
 Build
 -----
-Germes is a typical maven project, so follow these steps
+Hermes is a typical maven project, so follow these steps
 
 1. Import project as a maven project in your favorite IDE
 2. Create your strategy implementaion (or use strategy samples)
@@ -34,7 +41,7 @@ Germes is a typical maven project, so follow these steps
 Examples
 -------
 #### Day range research example
-Let's try to build some research. Simple assumption that: every weekday has a different bar size. I mean the difference between OPEN_PRICE and CLOSE_PRICE or between HIGH_PRICE and LOW_PRICE. Also, we wanna get some numerical value of every weekday size, so follow these steps for get the result:
+Let's try to build some research. Simple assumption that: every weekday has a different bar size. I mean the difference between OPEN_PRICE and CLOSE_PRICE or between HIGH_PRICE and LOW_PRICE. Also, we wanna get some numerical value of every weekday size, so follow these steps for get result:
 
 * You need to get some quote historical data - so write this code and you get historical data
 
