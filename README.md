@@ -10,9 +10,6 @@ Soon will be described
 
 Resources
 -
-
-- ETF prices,
-
 Hermes contains the following resources:
   - [**ETF Day1 and H1 data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several ETF history csv files
   - [**Forex Day1 and H1 currency data**](hermesdataprovider/src/main/resources/qoute_data/quotes/D1) contains several Forex currency history csv files
@@ -73,7 +70,6 @@ Let's try to build some research. Simple assumption that: every weekday has a di
 Full example code here [runDayRangeResearch](src/main/java/examples/ResearchRunner.java) 
 
 #### And result of our researching as image:
-------
 ####![Alt text](https://cloud.githubusercontent.com/assets/2547372/10561045/22a974ba-7526-11e5-8530-64e5432f6932.png "Research report")
 
 Other examples
