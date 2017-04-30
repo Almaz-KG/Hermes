@@ -1,5 +1,7 @@
 # Hermes
 
+[![Build Status](https://travis-ci.org/Almaz-KG/Hermes.svg?branch=master)](https://travis-ci.org/Almaz-KG/Hermes)
+
 Hermes is an open source software platform for trade backtesting and researching. Hermes can be used to develop algorithmic trading strategies or researching stock data correlation and other trade-based features.
 
 Hermes requires JDK 8 or newer.
