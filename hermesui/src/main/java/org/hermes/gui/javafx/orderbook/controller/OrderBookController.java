@@ -11,10 +11,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
-import org.hermes.gui.javafx.orderbook.model.MarketSnapshot;
-import org.hermes.gui.javafx.orderbook.model.Share;
-import org.hermes.gui.javafx.orderbook.model.Shares;
-import org.hermes.gui.javafx.orderbook.model.Tick;
+import org.hermes.core.entities.MarketSnapshot;
+import org.hermes.core.entities.Share;
+import org.hermes.core.entities.Shares;
+import org.hermes.core.entities.Tick;
 
 import java.net.URL;
 import java.util.List;
