@@ -10,18 +10,24 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>hermescore</module>
-        <module>hermesdataprovider</module>
-        <module>hermesui</module>
+        <module>hermes-core</module>
+        <module>hermes-data-provider</module>
+        <module>hermes-ui</module>
     </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>21.0</version>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>21.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.5</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

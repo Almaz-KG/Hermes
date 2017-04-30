@@ -11,7 +11,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hermes-data_provider</artifactId>
+    <artifactId>hermes-data-provider</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
@@ -19,13 +19,11 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>21.0</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.5</version>
         </dependency>
     </dependencies>
 
