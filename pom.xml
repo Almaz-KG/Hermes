@@ -14,6 +14,8 @@
         <module>hermes-data-provider</module>
         <module>hermes-ui</module>
     </modules>
+
+
     <dependencyManagement>
         <dependencies>
             <dependency>
