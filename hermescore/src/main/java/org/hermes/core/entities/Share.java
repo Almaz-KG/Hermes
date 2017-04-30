@@ -1,4 +1,4 @@
-package org.hermes.gui.javafx.orderbook.model;
+package org.hermes.core.entities;
 
 public class Share {
     private final String ticker;

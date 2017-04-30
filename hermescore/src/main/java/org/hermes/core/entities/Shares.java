@@ -1,4 +1,4 @@
-package org.hermes.gui.javafx.orderbook.model;
+package org.hermes.core.entities;
 
 import java.util.ArrayList;
 import java.util.Collections;
