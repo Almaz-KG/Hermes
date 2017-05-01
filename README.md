@@ -72,7 +72,7 @@ Let's try to build some research. Simple assumption that: every weekday has a di
 Full example code here [runDayRangeResearch](src/main/java/examples/ResearchRunner.java) 
 
 #### And result of our researching as image:
-####![Alt text](https://cloud.githubusercontent.com/assets/2547372/10561045/22a974ba-7526-11e5-8530-64e5432f6932.png "Research report")
+![Alt text](https://cloud.githubusercontent.com/assets/2547372/10561045/22a974ba-7526-11e5-8530-64e5432f6932.png "Research report")
 
 Other examples
 ------
