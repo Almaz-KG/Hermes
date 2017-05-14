@@ -11,10 +11,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
-import org.hermes.core.entities.MarketSnapshot;
-import org.hermes.core.entities.Share;
-import org.hermes.core.entities.Shares;
-import org.hermes.core.entities.Tick;
 
 import java.net.URL;
 import java.util.List;
@@ -23,12 +19,12 @@ import java.util.ResourceBundle;
 public class OrderBookController implements Initializable{
     @FXML
     private Pane header;
-    @FXML
-    private ComboBox<Share> sharesComboBox;
+//    @FXML
+//    private ComboBox<Share> sharesComboBox;
     @FXML
     private Hyperlink titleHyperlink;
-    @FXML
-    private TableView<Tick> tableView;
+//    @FXML
+//    private TableView<Tick> tableView;
 
     private Mouse mouse = new Mouse();
 
@@ -43,12 +39,12 @@ public class OrderBookController implements Initializable{
         });
 
         titleHyperlink.setBorder(Border.EMPTY);
-        sharesComboBox.getItems().addAll(Shares.getShares());
-        sharesComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
-            titleHyperlink.setText(newValue.getCompanyName());
-        });
-
-        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+//        sharesComboBox.getItems().addAll(Shares.getShares());
+//        sharesComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+//            titleHyperlink.setText(newValue.getCompanyName());
+//        });
+//
+//        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         TableColumn sell = new TableColumn("Продажа");
         TableColumn price = new TableColumn("Цена");
@@ -58,19 +54,19 @@ public class OrderBookController implements Initializable{
         sell.setSortable(false);
         price.setSortable(false);
         buy.setSortable(false);
-        sell.setCellValueFactory( new PropertyValueFactory<Tick, String>("value"));
-        price.setCellValueFactory( new PropertyValueFactory<Tick, String>("price"));
-        buy.setCellValueFactory( new PropertyValueFactory<Tick, String>("value"));
-
-        tableView.getColumns().addAll(sell, price, buy);
+//        sell.setCellValueFactory( new PropertyValueFactory<Tick, String>("value"));
+//        price.setCellValueFactory( new PropertyValueFactory<Tick, String>("price"));
+//        buy.setCellValueFactory( new PropertyValueFactory<Tick, String>("value"));
+//
+//        tableView.getColumns().addAll(sell, price, buy);
     }
 
 
-    private void updateTableView(Share share) {
-        MarketSnapshot marketSnapshot = Shares.getMarketSnapshot(share);
-        List<Tick> tickList = marketSnapshot.getTickList();
-
-        tableView.setItems(FXCollections.observableArrayList(tickList));
+    private void updateTableView(Object share) {
+//        MarketSnapshot marketSnapshot = Shares.getMarketSnapshot(share);
+//        List<Tick> tickList = marketSnapshot.getTickList();
+//
+//        tableView.setItems(FXCollections.observableArrayList(tickList));
     }
 
     public void exitButtonPressed(){
@@ -78,7 +74,7 @@ public class OrderBookController implements Initializable{
     }
 
     public void showButtonClicked(){
-        updateTableView(sharesComboBox.getValue());
+//        updateTableView(sharesComboBox.getValue());
     }
 
     private static class Mouse {

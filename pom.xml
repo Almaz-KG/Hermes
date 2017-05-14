@@ -13,6 +13,7 @@
         <module>hermes-core</module>
         <module>hermes-data-provider</module>
         <module>hermes-ui</module>
+        <module>hermes-backtest</module>
     </modules>
 
 
@@ -28,6 +29,30 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>3.5</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.3.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yahoofinance-api</groupId>
+                <artifactId>YahooFinanceAPI</artifactId>
+                <version>3.6.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity</artifactId>
+                <version>1.7</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jfree</groupId>
+                <artifactId>jfreechart</artifactId>
+                <version>1.0.19</version>
+            </dependency>
+
+
+
+
         </dependencies>
     </dependencyManagement>
 
@@ -39,6 +64,7 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
         </plugins>
