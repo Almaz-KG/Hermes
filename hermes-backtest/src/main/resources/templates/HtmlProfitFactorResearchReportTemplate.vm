@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Research profit factor for: $strategyName</title>
+
+    <link rel="stylesheet" type="text/css" href="css/default-style.css" />
+    <script>
+        function showHideTrades(obj){
+            var rows = document.getElementsByName(obj);
+
+            for(var i = 0; i < rows.length; i++){
+                var old = rows[i].style.display;
+                rows[i].style.display = (old == "none"?"":"none");
+            }
+        }
+    </script>
+    <style type="text/css" media="screen">
+        td { font: 8pt Tahoma,Arial; }
+        td { font: 7pt Tahoma,Arial; }
+        .msdate { mso-number-format:"General Date"; }
+        .mspt   { mso-number-format:\#\,\#\#0\.00;  }
+    </style>
+</head>
+<body topmargin=1 marginheight=1>
+    <div align=center>
+        <h1>$quoteName</h1>
+        <h3><b>Research profit factor for: $strategyName</b></h3>
+    </div>
+
+    <table class="bordered" align="center">
+        <thead>
+            <tr>
+                <th>Signal bar size factor</th>
+                <th>Take profit factor</th>
+                <th>Profit factor</th>
+                <th>Trades</th>
+                <th>Profit trades</th>
+                <th>Loss trades</th>
+                <th>Total net</th>
+            </tr>
+        </thead>
+        #set( $String = '' )
+        #foreach( $research in $researchResults)
+            <tr>
+                <td>$String.format('%.2f', $research.getProperty('signalBarSizeFactor'))</td>
+                <td>$String.format('%.2f', $research.getProperty('takeProfitFactor'))</td>
+                <td>$String.format('%.2f', $research.getProperty('profitFactor'))</td>
+                <td>$research.getProperty('totalTrades')</td>
+                <td>$research.getProperty('totalProfitTradeCount')</td>
+                <td>$research.getProperty('totalLossTradeCount')</td>
+                <td>$String.format('%.2f', $research.getProperty('totalNet'))</td>
+            </tr>
+        #end
+    </table>
+    </div>
+</body>
+</html>

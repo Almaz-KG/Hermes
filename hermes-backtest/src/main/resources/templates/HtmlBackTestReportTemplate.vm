@@ -1,0 +1,157 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Statement: $strategyName</title>
+
+    <script>
+        function showHideTrades(obj){
+            var rows = document.getElementsByName(obj);
+
+            for(var i = 0; i < rows.length; i++){
+                var old = rows[i].style.display;
+                rows[i].style.display = (old == "none"?"":"none");
+            }
+        }
+    </script>
+    <style type="text/css" media="screen">
+        td { font: 8pt Tahoma,Arial; }
+        td { font: 7pt Tahoma,Arial; }
+        .msdate { mso-number-format:"General Date"; }
+        .mspt   { mso-number-format:\#\,\#\#0\.00;  }
+    </style>
+</head>
+<body topmargin=1 marginheight=1>
+<div align=center>
+##    <div data-role="main" class="ui-content">
+##        <div data-role="collapsible">
+##            <h1>$quote</h1>
+##        </div>
+##    </div>
+
+    <table cellspacing=1 cellpadding=3 border=0>
+        <tr>
+            <td><b>Stratedy description:</b></td>
+            <td colspan="1000">$strategyName</td>
+        </tr>
+        <tr align=left>
+            <td>
+                <b>Data:</b>
+            </td>
+            <td>$quoteName</td>
+            <td><b>Name: </b></td>
+            <td>$accountOwner</td>
+        </tr>
+        #set( $String = '' )
+        <tr>
+            <td><b>Start date</b></td>
+            <td> $String.format('%1$tY/%1$tm/%1$td', $startDate)</td>
+            <td><b>End date</b></td>
+            <td> $String.format('%1$tY/%1$tm/%1$td', $endDate)</td>
+        </tr>
+        <tr>
+            <td colspan=9 onclick="showHideTrades('$quoteName')" align="center">
+                <i>Click to collapse/expand trades!</i>
+            </td>
+        </tr>
+        <tr align=center bgcolor="#C0C0C0">
+            <td>Open date</td>
+            <td>Close date</td>
+            <td>Open price</td>
+            <td>Close price</td>
+            <td>Take profit</td>
+            <td>Stop loss</td>
+            <td>Order type</td>
+            <td>Result</td>
+        </tr>
+        #set( $totalProfit = 0.0)
+        #foreach( $order in $orders)
+            #set( $totalProfit = $totalProfit+ $order.getResult())
+            <tr align=center name="$quoteName" style="display: none">
+                <td>$String.format('%1$tY-%1$tm-%1$td %1$tH:%1$tM', $order.openDate)</td>
+                <td>$String.format('%1$tY-%1$tm-%1$td %1$tH:%1$tM', $order.closeDate)</td>
+                <td>$String.format('%.2f', $order.openPrice)</td>
+                <td>$String.format('%.2f', $order.closePrice)</td>
+                <td>$String.format('%.2f', $order.takeProfit)</td>
+                <td>$String.format('%.2f', $order.stopLoss)</td>
+                <td>$order.tradeType</td>
+                <td>$String.format('%.2f', $order.getResult())</td>
+            </tr>
+        #end
+        <tr>
+            <td colspan=2>
+                <b>Trades: </b>
+            </td>
+            <td>$orders.size()</td>
+            <td colspan=2>
+                <b>Total profit: </b>
+            </td>
+            <td>$String.format('%.2f',$totalProfit)$</td>
+        </tr>
+        <tr align=center bgcolor="#C0C0C0">
+            <td colspan=1000>
+                <b>Detailed result</b>
+            </td>
+        </tr>
+        <tr>
+            <td align=left><b>Total net: </b></td>
+            <td align="center">$String.format('%.2f', ${totalNet})</td>
+            </tr>
+        <tr>
+            <td align=left><b>Gross profit: </b></td>
+            <td align="center">$String.format('%.2f', ${grossProfit})</td>
+            <td align=left><b>Gross loss: </b></td>
+            <td align="center">$String.format('%.2f', ${grossLoss})</td>
+        </tr>
+        <tr align=center>
+            <td align=left><b>Total trades: </b></td>
+            <td align="center">${totalTrades}</td>
+
+            <td align=left><b>Profit trade %</b></td>
+            <td align="center">$String.format('%.2f', ${totalProfitPercentage}) %</td>
+        </tr>
+        <tr align=center>
+            <td align=left><b>Profit trades: </b></td>
+            <td align="center">${totalProfitTradeCount}</td>
+            <td align=left><b>Loss trades: </b></td>
+            <td align="center">${totalLossTradeCount}</td>
+        </tr>
+        <tr align=center>
+            <td align=left><b>Larges profit trade: </b></td>
+            <td align="center">$String.format('%.2f', ${totalLargestProfit})</td>
+            <td align=left><b>Largest loss trade: </b></td>
+            <td align="center">$String.format('%.2f', ${totalLargestLoss})</td>
+        </tr>
+        <tr align=center>
+            <td align=left><b>Average profit trade: </b></td>
+            <td align="center">$String.format('%.2f', ${totalAverageProfit})</td>
+            <td align=left><b>Average loss trade: </b></td>
+            <td align="center">$String.format('%.2f', ${totalAverageLoss})</td>
+        </tr>
+
+        <tr align=center>
+            <td align=left><b>The maximum number <br>of consecutive profits</b></td>
+            <td align="center">${consecutiveProfitCount}</td>
+            <td align=left><b>The maximum number <br>of consecutive loss</b></td>
+            <td align="center">${consecutiveLossCount}</td>
+        </tr>
+
+        <tr align=center>
+            <td align=left><b>The maximum drawdown balance</b></td>
+            <td align="center">$String.format('%.2f',${drawdownBalanceClose})</td>
+        </tr>
+
+        <tr>
+            <td align=left><b>Profit factor: </b></td>
+            <td align="center">$String.format('%.2f', ${profitFactor})</td>
+            <td align=left><b>Order size: </b></td>
+            <td align="center">$String.format('%.2f', ${defaultOrderSize})</td>
+        </tr>
+
+        <tr>
+            <td style="color: darkgrey"></td>
+        </tr>
+    </table>
+    </div>
+<hr>
+</body>
+</html>

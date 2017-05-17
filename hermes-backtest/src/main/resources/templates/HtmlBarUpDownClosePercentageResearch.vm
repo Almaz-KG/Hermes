@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bar up and down close percentage research</title>
+    <link rel="stylesheet" type="text/css" href="css/default-style.css"/>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+    <script>
+       $(document).ready(function () {
+        $("#myTable").tablesorter();
+    });     </script>
+</head>
+<body topmargin=1 marginheight=1>
+<div align=center><h2><b>Bar up and down close percentages </b></h2>
+
+    <div id="container">
+        <div id="content">
+            <hr />
+        </div>
+        <table id="myTable" class="tablesorter bordered">
+            <thead>
+            <tr>
+                <th>Quote</th>
+                <th>Start<br>date</th>
+                <th>End<br>date</th>
+                <th>Bars</th>
+                <th>Double <br>Up bars</th>
+                <th>Double <br>Down bars</th>
+                <th>3x <br>Up bars</th>
+                <th>3x <br>Down bars</th>
+                <th>4x <br>Up bars</th>
+                <th>4x <br>Down bars</th>
+                <th>Up bars<br> after 2x down</th>
+                <th>Down bars<br> after 2x up</th>
+                <th>Up bars<br> after 3x down</th>
+                <th>Down bars<br> after 3x up</th>
+            </tr>
+            </thead>
+            <tbody>
+                #set( $String = '' )
+                #foreach( $research in $researchResults)
+                    <tr>
+                        <td>$research.getQuote()</td>
+                        <td>$String.format('%1$tY-%1$tm-%1$td', $research.getProperty('startDate'))</td>
+                        <td>$String.format('%1$tY-%1$tm-%1$td', $research.getProperty('endDate'))</td>
+                        <td>$research.getProperty('barsCount')</td>
+                        <td>$research.getProperty('doubleUpBarsCount') / $String.format('%.2f',$research.getProperty('doubleUpBarsCountPercentage')) % </td>
+                        <td>$research.getProperty('doubleDownBarsCount') / $String.format('%.2f',$research.getProperty('doubleDownBarsCountPercentage'))%</td>
+                        <td>$research.getProperty('threeUpBarsCount') / $String.format('%.2f',$research.getProperty('threeUpBarsCountPercentage'))%</td>
+                        <td>$research.getProperty('threeDownBarsCount') / $String.format('%.2f',$research.getProperty('threeDownBarsCountPercentage'))%</td>
+                        <td>$research.getProperty('fourUpBarsCount') / $String.format('%.2f',$research.getProperty('fourUpBarsCountPercentage'))%</td>
+                        <td>$research.getProperty('fourDownBarsCount') / $String.format('%.2f',$research.getProperty('fourDownBarsCountPercentage'))%</td>
+                        <td>$research.getProperty('upAfter2xDownBarsCount') / $String.format('%.2f',$research.getProperty('upAfter2xDownBarsCountPercentage'))%</td>
+                        <td>$research.getProperty('downAfter2xUpBarsCount') / $String.format('%.2f',$research.getProperty('downAfter2xUpBarsCountPercentage'))%</td>
+                        <td>$research.getProperty('upAfter3xDownBarsCount') / $String.format('%.2f',$research.getProperty('upAfter3xDownBarsCountPercentage'))%</td>
+                        <td>$research.getProperty('downAfter3xUpBarsCount') / $String.format('%.2f',$research.getProperty('downAfter3xUpBarsCountPercentage'))%</td>
+                    </tr>
+                #end
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
