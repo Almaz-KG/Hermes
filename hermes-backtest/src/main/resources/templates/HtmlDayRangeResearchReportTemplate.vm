@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day range research</title>
+
+    <link rel="stylesheet" type="text/css" href="css/default-style.css"/>
+</head>
+<body topmargin=1 marginheight=1>
+<div align=center>
+    <h2><b>Day range research</b></h2>
+    <table class="bordered">
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+            </tr>
+        </thead>
+        <tbody>
+            #set( $String = '' )
+            #foreach( $research in $researchResults)
+                <tr>
+                    <td title="$research.quote.quoteName">$research.quote</td>
+                    <td>$String.format('%1$tY-%1$tm-%1$td', $research.getProperty('startDate'))</td>
+                    <td>$String.format('%1$tY-%1$tm-%1$td', $research.getProperty('endDate'))</td>
+                    <td title="High - Low/Close - Open">$String.format('%.2f', $research.getProperty('MONDAY').getProperty('highLowDiff'))<br>
+                    $String.format('%.2f', $research.getProperty('MONDAY').getProperty('closeOpenDiff'))</td>
+                    <td title="High - Low/Close - Open">$String.format('%.2f', $research.getProperty('TUESDAY').getProperty('highLowDiff'))<br>
+                    $String.format('%.2f', $research.getProperty('TUESDAY').getProperty('closeOpenDiff'))</td>
+                    <td title="High - Low/Close - Open">$String.format('%.2f', $research.getProperty('WEDNESDAY').getProperty('highLowDiff'))<br>
+                    $String.format('%.2f', $research.getProperty('WEDNESDAY').getProperty('closeOpenDiff'))</td>
+                    <td title="High - Low/Close - Open">$String.format('%.2f', $research.getProperty('THURSDAY').getProperty('highLowDiff'))<br>
+                    $String.format('%.2f', $research.getProperty('THURSDAY').getProperty('closeOpenDiff'))</td>
+                    <td title="High - Low/Close - Open">$String.format('%.2f', $research.getProperty('FRIDAY').getProperty('highLowDiff'))<br>
+                    $String.format('%.2f', $research.getProperty('FRIDAY').getProperty('closeOpenDiff'))</td>
+                </tr>
+            #end
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

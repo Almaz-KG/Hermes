@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bar size strategy research</title>
+    <link rel="stylesheet" type="text/css" href="css/default-style.css"/>
+
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#myTable").tablesorter();
+        });
+    </script>
+
+</head>
+<body topmargin=1 marginheight=1>
+<div align=center>
+    <h2><b>Bar size strategy research</b></h2>
+
+    <div id="container">
+        <div id="content">
+            <hr>
+            <h3>Торговая стратегия:
+                <br>
+                <p>Покупать на открытии завтра, если сегодня рынок демонстрирует
+                    рост на bar Size % (от high-low or open-close) от SMA period
+                    среднего дневного диапазона.
+                </p>
+                <p>Продавать на открытии завтра, если егодня рынок демонстрирует
+                    снижение на bar Size % (от high-low or open-close) от SMA period
+                    среднего дневного диапазона.
+                </p>
+                <p>Выход по противоположенному сигналу</p>
+            </h3>
+            <hr>
+        </div>
+        <table id = "myTable" class="tablesorter bordered">
+            <thead>
+            <tr>
+                <th>SMA<br>period</th>
+                <th>Bar<br>size</th>
+                <th>Trades</th>
+                <th>Profit<br>trades</th>
+                <th>Loss<br>trades</th>
+                <th>Long<br>trades</th>
+                <th>Short<br>trades</th>
+                <th>Gross<br>profit</th>
+                <th>Gross<br>loss</th>
+                <th>Total<br>net</th>
+                <th>Profit<br>factor</th>
+                <th>Average<br>profit</th>
+                <th>Average<br>loss</th>
+                <th>Largest<br>profit</th>
+                <th>Largest<br>loss</th>
+                <th>%</th>
+            </tr>
+            </thead>
+            <tbody>
+                #set( $String = '' )
+                #foreach( $research in $researchResults)
+                <tr>
+                    <td>$research.getProperty('signalBarPeriod')</td>
+                    <td>$String.format('%.2f',$research.getProperty('signalBarSize'))</td>
+                    <td>$research.getProperty('totalTrades')</td>
+                    <td>$research.getProperty('totalProfitTradeCount')</td>
+                    <td>$research.getProperty('totalLossTradeCount')</td>
+                    <td>$research.getProperty('totalLongTradeCount')</td>
+                    <td>$research.getProperty('totalShortTradeCount')</td>
+                    <td>$String.format('%.2f', $research.getProperty('grossProfit'))$</td>
+                    <td>$String.format('%.2f', $research.getProperty('grossLoss'))$</td>
+                    <td>$String.format('%.2f', $research.getProperty('totalNet'))$</td>
+                    <td>$String.format('%.2f', $research.getProperty('profitFactor'))</td>
+                    <td>$String.format('%.2f', $research.getProperty('totalAverageProfit'))$</td>
+                    <td>$String.format('%.2f', $research.getProperty('totalAverageLoss'))$</td>
+                    <td>$String.format('%.2f', $research.getProperty('totalLargestProfit'))$</td>
+                    <td>$String.format('%.2f', $research.getProperty('totalLargestLoss'))$</td>
+                    <td>$String.format('%.2f', $research.getProperty('totalProfitPercentage'))%</td>
+                </tr>
+                #end
+            </tbody>
+        </table>
+
+        </div>
+    </div>
+</body>
+</html>
